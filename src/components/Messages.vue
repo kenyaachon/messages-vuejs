@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4>Messages</h4>
+    <h2>Messages</h2>
     <!-- <ul v-for="(message, index) in messages" :key="index">
       <li>{{ message }}</li>
     </ul> -->
@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import Listbox from "primevue/listbox";
+import axios from "axios";
 export default {
   data() {
     return {
@@ -19,6 +20,11 @@ export default {
   },
   components: {
     Listbox,
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3000/messages")
+      .then((res) => (this.messages = res.data));
   },
 };
 </script>
