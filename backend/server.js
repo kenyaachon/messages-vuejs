@@ -1,14 +1,23 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 
 app.use(cors());
+app.use(bodyParser.json());
 app.get("/", (req, res) => res.send("test"));
 
-app.get("/messages", (req, res) => {
-  const messages = ["hello", "hi", "its working"];
+var messages = ["hello", "hi", "its working"];
 
+app.get("/messages", (req, res) => {
   res.send(messages);
+});
+
+app.post("/messages", (req, res) => {
+  let msg = req.body;
+  console.log(msg);
+  messages.push(msg.messages);
+  res.json(msg);
 });
 app.listen(port, () => console.log("app running"));
