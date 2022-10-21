@@ -1,15 +1,10 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import PrimeVue from "primevue/config";
-import ListBox from "primevue/listbox";
-import InputText from "primevue/inputtext";
+import vuetify from "./plugins/vuetify";
+import { loadFonts } from "./plugins/webfontloader";
 
-import "./assets/main.css";
+loadFonts();
 
 const app = createApp(App);
-
-app.use(PrimeVue);
-
-app.component("ListBox", ListBox);
-app.component("InputText", InputText);
+app.use(vuetify);
 app.mount("#app");
