@@ -14,7 +14,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      messages: ["what is up my guy", "hi", "We are"],
+      messages: [],
       message: "",
     };
   },

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Messages from "./components/Messages.vue";
+import CreateMessage from "./components/CreateMessage.vue";
 </script>
 
 <template>
@@ -12,7 +13,7 @@ import Messages from "./components/Messages.vue";
       height="125"
     />
   </header>
-
+  <CreateMessage />
   <Messages />
 </template>
 
