@@ -1,26 +1,32 @@
 <template>
   <v-app>
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+    <v-toolbar app> </v-toolbar>
+
+    <v-content>
+      <CreateMessage />
+      <br />
+      <Messages />
+    </v-content>
   </v-app>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { defineComponent } from "vue";
+import Messages from "./components/Messages.vue";
+import CreateMessage from "./components/CreateMessage.vue";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
 
   components: {
-    HelloWorld,
+    Messages,
+    CreateMessage,
   },
 
-  data () {
+  data() {
     return {
       //
-    }
+    };
   },
-})
+});
 </script>
