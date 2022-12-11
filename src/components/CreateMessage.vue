@@ -1,17 +1,20 @@
 <template>
-  <v-flex>
-    <v-form>
-      <v-container>
-        <v-row>
-          <v-col cols="12" md="4">
-            <v-text-field label="Message" required></v-text-field>
-          </v-col>
-        </v-row>
-      </v-container>
-
-      <v-btn color="success" class="mr-4" @click="submit"> Submit </v-btn>
-    </v-form>
-  </v-flex>
+  <v-container>
+    <v-card>
+      <v-form>
+        <v-container>
+          <v-row no-gutters>
+            <v-col>
+              <v-text-field label="Message" required></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-btn color="success" @click="submit"> Submit </v-btn>
+          </v-row>
+        </v-container>
+      </v-form>
+    </v-card>
+  </v-container>
 </template>
 
 <script>

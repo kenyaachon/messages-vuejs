@@ -1,27 +1,20 @@
 <template>
-  <div>
-    <h4 class="text-h4">Messages</h4>
-
+  <v-container>
     <v-card>
-      <v-list lines="one" @click="messageClicked">
-        <v-list-item
-          v-for="(message, i) in messages"
-          :key="i"
-          subtitle="..."
-          :title="message"
-        >
-          <!-- <v-list-item-content>
-          <v-list-item-title v-text="message"></v-list-item-title>
-        </v-list-item-content> -->
-        </v-list-item>
-      </v-list>
+      <v-container>
+        <h4 class="text-h4">Messages</h4>
+        <v-list lines="one" @click="messageClicked">
+          <v-list-item
+            v-for="(message, i) in messages"
+            :key="i"
+            subtitle="..."
+            :title="message"
+          >
+          </v-list-item>
+        </v-list>
+      </v-container>
     </v-card>
-    <p>{{ message }}</p>
-
-    <v-card>
-      <v-list :items="items"></v-list>
-    </v-card>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">
