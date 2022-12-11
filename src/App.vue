@@ -3,9 +3,9 @@
     <v-toolbar app> </v-toolbar>
 
     <v-content>
-      <CreateMessage />
+      <CreateMessage @new-message="passData" ref="createmsg" />
       <br />
-      <Messages />
+      <Messages ref="msg" />
     </v-content>
   </v-app>
 </template>
@@ -27,6 +27,12 @@ export default defineComponent({
     return {
       //
     };
+  },
+  methods: {
+    passData(message: string) {
+      console.log("were passing some data");
+      this.$refs.msg.addNewMessage(message);
+    },
   },
 });
 </script>

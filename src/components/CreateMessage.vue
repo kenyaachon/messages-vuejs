@@ -43,6 +43,8 @@ export default {
       await axios.post("http://localhost:3000/messages", {
         message: this.messageBody,
       });
+
+      this.$emit("newMessage", this.messageBody);
     },
   },
 };

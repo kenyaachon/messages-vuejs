@@ -9,6 +9,7 @@
         <v-list lines="one" @click="messageClicked">
           <v-list-item
             v-for="(message, i) in messages"
+            @new-message="addNewMessage"
             :key="i"
             subtitle="..."
             :title="message"
@@ -22,10 +23,11 @@
 
 <script lang="ts">
 import axios from "axios";
+
 export default {
   data() {
     return {
-      messages: [],
+      messages: [] as string[],
       message: "",
       items: [
         { type: "subheader", title: "Group #1" },
@@ -57,10 +59,17 @@ export default {
     axios
       .get("http://localhost:3000/messages")
       .then((res) => (this.messages = res.data));
+
+    // update message list
   },
+  async created() {},
   methods: {
     messageClicked(event: Event) {
       this.message = "this is the messaged clicked" + event.target;
+    },
+    addNewMessage(message: string) {
+      console.log("hello there we see you");
+      this.messages.push(message);
     },
   },
 };
