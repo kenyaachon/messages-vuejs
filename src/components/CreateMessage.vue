@@ -1,11 +1,18 @@
 <template>
   <v-container>
     <v-card>
+      <v-toolbar color="black">
+        <v-toolbar-title>New Messages</v-toolbar-title>
+      </v-toolbar>
       <v-form>
         <v-container>
           <v-row no-gutters>
             <v-col>
-              <v-text-field label="Message" required></v-text-field>
+              <v-text-field
+                v-model="messageBody"
+                label="Message"
+                required
+              ></v-text-field>
             </v-col>
           </v-row>
           <v-row no-gutters>
@@ -19,15 +26,24 @@
 
 <script>
 // import InputText from "primevue/inputtext";
+import axios from "axios";
 export default {
   data() {
-    return {};
+    return {
+      messageBody: "",
+    };
   },
   components: {
     // InputText,
   },
   methods: {
-    async submit() {},
+    async submit() {
+      console.log("I submitted something");
+      console.log(this.messageBody);
+      await axios.post("http://localhost:3000/messages", {
+        message: this.messageBody,
+      });
+    },
   },
 };
 </script>
