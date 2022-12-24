@@ -3,7 +3,8 @@
     <v-toolbar app> </v-toolbar>
 
     <v-content>
-      <CreateMessage @new-message="passData" ref="createmsg" />
+      <!-- <CreateMessage @new-message="passData" ref="createmsg" /> -->
+      <CreateMessage />
       <br />
       <Messages ref="msg" />
     </v-content>
@@ -30,8 +31,8 @@ export default defineComponent({
   },
   methods: {
     passData(message: string) {
-      console.log("were passing some data");
-      this.$refs.msg.addNewMessage(message);
+      console.log("were passing some data", message);
+      // this.$refs.msg.addNewMessage(message);
     },
   },
 });

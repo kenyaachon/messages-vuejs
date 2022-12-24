@@ -15,7 +15,7 @@
     "primeicons": "^5.0.0",
     "primevue": "^3.17.0",
     "roboto-fontface": "*",
-    "vue": "^3.2.38",
+    "vue": "^3.2.36",
     "vuetify": "^3.0.4",
     "webfontloader": "^1.0.0"
   },

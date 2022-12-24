@@ -8,7 +8,7 @@
         </v-toolbar>
         <v-list lines="one" @click="messageClicked">
           <v-list-item
-            v-for="(message, i) in messages"
+            v-for="(message, i) in store.messages"
             @new-message="addNewMessage"
             :key="i"
             subtitle="..."
@@ -23,11 +23,12 @@
 
 <script lang="ts">
 import axios from "axios";
+import { store } from "../store";
 
 export default {
   data() {
     return {
-      messages: [] as string[],
+      store: store,
       message: "",
       items: [
         { type: "subheader", title: "Group #1" },
@@ -55,11 +56,12 @@ export default {
     };
   },
   components: {},
-  mounted() {
-    axios
-      .get("http://localhost:3000/messages")
-      .then((res) => (this.messages = res.data));
+  async mounted() {
+    // axios
+    //   .get("http://localhost:3000/messages")
+    //   .then((res) => (store.messages = res.data));
 
+    store.messages = (await axios.get("http://localhost:3000/messages")).data;
     // update message list
   },
   async created() {},
@@ -69,7 +71,7 @@ export default {
     },
     addNewMessage(message: string) {
       console.log("hello there we see you");
-      this.messages.push(message);
+      this.store.messages.push(message);
     },
   },
 };

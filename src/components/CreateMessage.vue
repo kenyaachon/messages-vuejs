@@ -27,6 +27,7 @@
 <script>
 // import InputText from "primevue/inputtext";
 import axios from "axios";
+import { store } from "../store";
 export default {
   data() {
     return {
@@ -44,7 +45,8 @@ export default {
         message: this.messageBody,
       });
 
-      this.$emit("newMessage", this.messageBody);
+      // this.$emit("newMessage", this.messageBody);
+      store.messages.push(this.messageBody);
     },
   },
 };
