@@ -17,7 +17,6 @@
           </v-list-item> -->
           <v-list-item
             v-for="(message, i) in messageList()"
-            @new-message="addNewMessage"
             :key="i"
             subtitle="..."
             :title="message"
@@ -65,27 +64,19 @@ export default {
   },
   components: {},
   async mounted() {
-    // axios
-    //   .get("http://localhost:3000/messages")
-    //   .then((res) => (store.messages = res.data));
-
-    const messages = (await axios.get("http://localhost:3000/messages")).data;
-    store.commit("posts", messages);
-    // this.$store.state.messages = (
-    //   await axios.get("http://localhost:3000/messages")
-    // ).data;
-
-    // update message list
+    try {
+      store.dispatch("posts");
+      // update message list
+    } catch (error) {
+      console.log("error");
+    }
   },
   async created() {},
   methods: {
     messageClicked(event: Event) {
       this.message = "this is the messaged clicked" + event.target;
     },
-    addNewMessage(message: string) {
-      console.log("hello there we see you");
-      this.store.messages.push(message);
-    },
+
     messageList() {
       return store.state.messages;
       // return ["hello"];

@@ -39,20 +39,14 @@ export default {
   },
   methods: {
     async submit() {
-      console.log("I submitted something");
-      console.log(this.messageBody);
-      await axios.post("http://localhost:3000/messages", {
-        message: this.messageBody,
-      });
+      try {
+        console.log("I submitted something");
+        console.log(this.messageBody);
 
-      // this.$emit("newMessage", this.messageBody);
-      // store.messages.push(this.messageBody);
-
-      // this doesn't work
-      //this.$store.commit("addMessage", this.messageBody);
-
-      // this works
-      store.commit("addMessage", this.messageBody);
+        store.dispatch("addMessage", this.messageBody);
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 };
