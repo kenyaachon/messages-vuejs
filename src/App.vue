@@ -1,12 +1,20 @@
 <template>
   <v-app>
-    <v-toolbar app> </v-toolbar>
+    <v-toolbar app>
+      <v-btn flat to="/">Messages</v-btn>
+      <br />
+      <v-btn flat to="/NewMessage">New Messages</v-btn>
+
+      <v-spacer />
+      <v-btn flat>Login</v-btn>
+    </v-toolbar>
 
     <v-content>
       <!-- <CreateMessage @new-message="passData" ref="createmsg" /> -->
-      <CreateMessage />
+      <!-- <CreateMessage />
       <br />
-      <Messages ref="msg" />
+      <Messages ref="msg" /> -->
+      <router-view />
     </v-content>
   </v-app>
 </template>

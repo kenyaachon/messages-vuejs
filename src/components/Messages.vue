@@ -29,13 +29,9 @@
 </template>
 
 <script lang="ts">
-import axios from "axios";
-import { store } from "../store";
-
 export default {
   data() {
     return {
-      // store: store,
       message: "",
       items: [
         { type: "subheader", title: "Group #1" },
@@ -65,7 +61,7 @@ export default {
   components: {},
   async mounted() {
     try {
-      store.dispatch("posts");
+      this.$store.dispatch("posts");
       // update message list
     } catch (error) {
       console.log("error");
@@ -78,8 +74,7 @@ export default {
     },
 
     messageList() {
-      return store.state.messages;
-      // return ["hello"];
+      return this.$store.state.messages;
     },
   },
   computed: {},

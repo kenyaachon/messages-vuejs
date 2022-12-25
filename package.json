@@ -16,6 +16,7 @@
     "primevue": "^3.17.0",
     "roboto-fontface": "*",
     "vue": "^3.2.36",
+    "vue-router": "^4.1.6",
     "vuetify": "^3.0.4",
     "vuex": "^4.1.0",
     "webfontloader": "^1.0.0"

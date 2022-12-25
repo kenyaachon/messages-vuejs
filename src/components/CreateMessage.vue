@@ -24,26 +24,24 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 // import InputText from "primevue/inputtext";
-import axios from "axios";
-import { store } from "../store";
+
 export default {
   data() {
     return {
       messageBody: "",
     };
   },
-  components: {
-    // InputText,
-  },
+  components: {},
   methods: {
     async submit() {
       try {
         console.log("I submitted something");
         console.log(this.messageBody);
 
-        store.dispatch("addMessage", this.messageBody);
+        //store.dispatch("addMessage", this.messageBody);
+        this.$store.dispatch("addMessage", this.messageBody);
       } catch (error) {
         console.error(error);
       }
