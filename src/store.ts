@@ -10,6 +10,7 @@ import { createStore } from "vuex";
 import axios from "axios";
 export interface State {
   messages: string[];
+  token: string;
 }
 
 // export const key: InjectionKey<Store<State>> = Symbol();
@@ -18,6 +19,7 @@ export const store = createStore<State>({
   state() {
     return {
       messages: [],
+      token: localStorage.getItem("token") || "",
     };
   },
   mutations: {
@@ -26,6 +28,13 @@ export const store = createStore<State>({
     },
     posts(state, messages) {
       state.messages = messages;
+    },
+    authentication(state, token) {
+      state.token = token;
+    },
+    logout(state) {
+      state.token = "";
+      localStorage.clear("token");
     },
   },
   actions: {
@@ -49,8 +58,13 @@ export const store = createStore<State>({
         await axios.post("http://localhost:3000/register", userData)
       ).data;
 
+      commit("authentication", token);
+
       localStorage.setItem("token", token);
       axios.defaults.headers.common["Authorization"] = token;
+    },
+    async logout({ commit }) {
+      commit("logout");
     },
   },
 });

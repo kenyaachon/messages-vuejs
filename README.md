@@ -1,6 +1,6 @@
 # messages
 
-This template should help get you started developing with Vue 3 in Vite.
+This simple project uses the [vuetify](https://next.vuetifyjs.com/en/) component framework for Vue 3 and [vuex](https://vuex.vuejs.org/guide/modules.html) for state management
 
 ## Recommended IDE Setup
 

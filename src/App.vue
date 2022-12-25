@@ -6,8 +6,11 @@
       <v-btn class="pa-3 ma-2" flat to="/NewMessage">New Messages</v-btn>
 
       <v-spacer />
-      <v-btn class="pa-3 ma-2" flat to="/Register">Register</v-btn>
-      <v-btn class="pa-3 ma-2" flat>Login</v-btn>
+      <v-btn class="pa-3 ma-2" flat v-if="!auth" to="/Register">Register</v-btn>
+      <v-btn class="pa-3 ma-2" flat v-if="!auth">Login</v-btn>
+      <v-btn class="pa-3 ma-2" flat v-if="auth" @click="$store.commit('logout')"
+        >Logout</v-btn
+      >
     </v-toolbar>
 
     <v-content>
@@ -31,13 +34,21 @@ export default defineComponent({
 
   data() {
     return {
-      //
+      isAuthenticated: this.$store.state.token,
     };
   },
   methods: {
     passData(message: string) {
       console.log("were passing some data", message);
       // this.$refs.msg.addNewMessage(message);
+    },
+    logout() {
+      this.$store.dispatch("logout");
+    },
+  },
+  computed: {
+    auth() {
+      return this.$store.state.token;
     },
   },
 });
