@@ -25,4 +25,12 @@ app.post("/messages", (req, res) => {
   messages.push(msg.message);
   res.json(msg);
 });
+
+app.post("/register", (req, res) => {
+  // register a new user
+  let registerData = req.body;
+
+  console.log(registerData);
+  res.json("User has been created");
+});
 app.listen(port, () => console.log("app running"));

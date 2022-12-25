@@ -44,6 +44,9 @@ export const store = createStore<State>({
         .data;
       return messages;
     },
+    async registerUser({ commit }, userData) {
+      await axios.post("http://localhost:3000/register", userData);
+    },
   },
 });
 
