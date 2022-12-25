@@ -10,8 +10,8 @@
           <v-list-item
             v-for="(message, i) in messageList()"
             :key="i"
-            subtitle="..."
-            :title="message"
+            :subtitle="message.user"
+            :title="message.text"
             :to="'message/' + i"
           >
           </v-list-item>

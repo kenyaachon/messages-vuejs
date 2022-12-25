@@ -6,7 +6,7 @@
       <v-btn class="pa-3 ma-2" flat to="/NewMessage">New Messages</v-btn>
 
       <v-spacer />
-      <v-btn class="pa-3 ma-2" flat>Register</v-btn>
+      <v-btn class="pa-3 ma-2" flat to="/Register">Register</v-btn>
       <v-btn class="pa-3 ma-2" flat>Login</v-btn>
     </v-toolbar>
 

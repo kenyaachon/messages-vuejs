@@ -5,8 +5,9 @@
         <v-toolbar-title>Message</v-toolbar-title>
       </v-toolbar>
       <v-card-text>
-        {{ messageBody }}
+        {{ messageBody.text }}
       </v-card-text>
+      <v-card-text> User {{ messageBody.user }} </v-card-text>
     </v-card>
   </v-container>
 </template>
