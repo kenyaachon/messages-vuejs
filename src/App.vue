@@ -14,22 +14,22 @@
       <!-- <CreateMessage />
       <br />
       <Messages ref="msg" /> -->
-      <router-view />
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Messages from "./components/Messages.vue";
-import CreateMessage from "./components/CreateMessage.vue";
+// import MessageList from "./components/MessageList.vue";
+// import CreateMessage from "./components/CreateMessage.vue";
 
 export default defineComponent({
   name: "App",
 
   components: {
-    Messages,
-    CreateMessage,
+    // Messages,
+    // CreateMessage,
   },
 
   data() {

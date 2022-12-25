@@ -39,6 +39,11 @@ export const store = createStore<State>({
       });
       commit("addMessage", message);
     },
+    async getMessage({ commit }, id) {
+      const messages = (await axios.get(`http://localhost:3000/messages/${id}`))
+        .data;
+      return messages;
+    },
   },
 });
 

@@ -5,21 +5,25 @@ import vuetify from "./plugins/vuetify";
 import { loadFonts } from "./plugins/webfontloader";
 // import { store, key } from "./store";
 import { store } from "./store";
-import { createRouter, createWebHashHistory } from "vue-router";
-import Messages from "./components/Messages.vue";
+import { createRouter, createWebHistory } from "vue-router";
+import MessageList from "./components/MessageList.vue";
+import Message from "./components/Message.vue";
 import CreateMessage from "./components/CreateMessage.vue";
 
 loadFonts();
 
 const app = createApp(App);
+const About = { template: "<div>About</div>" };
 
 const routes = [
-  { path: "/", component: Messages },
+  { path: "/", component: MessageList },
   { path: "/NewMessage", component: CreateMessage },
+  { path: "/Message/:id", component: Message },
+  { path: "/about", component: About },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 

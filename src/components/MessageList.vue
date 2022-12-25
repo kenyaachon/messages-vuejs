@@ -7,19 +7,12 @@
           <v-toolbar-title>Messages</v-toolbar-title>
         </v-toolbar>
         <v-list lines="one" @click="messageClicked">
-          <!-- <v-list-item
-            v-for="(message, i) in store.messages"
-            @new-message="addNewMessage"
-            :key="i"
-            subtitle="..."
-            :title="message"
-          >
-          </v-list-item> -->
           <v-list-item
             v-for="(message, i) in messageList()"
             :key="i"
             subtitle="..."
             :title="message"
+            :to="'message/' + i"
           >
           </v-list-item>
         </v-list>
