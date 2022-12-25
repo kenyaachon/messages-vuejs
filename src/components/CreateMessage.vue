@@ -46,7 +46,13 @@ export default {
       });
 
       // this.$emit("newMessage", this.messageBody);
-      store.messages.push(this.messageBody);
+      // store.messages.push(this.messageBody);
+
+      // this doesn't work
+      //this.$store.commit("addMessage", this.messageBody);
+
+      // this works
+      store.commit("addMessage", this.messageBody);
     },
   },
 };
