@@ -2,7 +2,7 @@
   <v-container>
     <v-card>
       <v-toolbar color="black">
-        <v-toolbar-title>Register New User</v-toolbar-title>
+        <v-toolbar-title>Login User</v-toolbar-title>
       </v-toolbar>
       <v-form>
         <v-container>
@@ -24,7 +24,7 @@
           </v-row>
 
           <v-row no-gutters>
-            <v-btn color="success" @click="register"> Register </v-btn>
+            <v-btn color="success" @click="login"> Login </v-btn>
           </v-row>
         </v-container>
       </v-form>
@@ -42,16 +42,13 @@ export default {
   },
   components: {},
   methods: {
-    async register() {
+    async login() {
       try {
-        console.log("I registered this user");
-        console.log(this.userName);
-
-        this.$store.dispatch("registerUser", {
+        console.log("I am login in this user");
+        this.$store.dispatch("login", {
           userName: this.userName,
           password: this.password,
         });
-        this.$router.push("/");
       } catch (error) {
         console.error(error);
       }

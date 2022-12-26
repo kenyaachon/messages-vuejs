@@ -10,6 +10,7 @@ import MessageList from "./components/MessageList.vue";
 import Message from "./components/Message.vue";
 import CreateMessage from "./components/CreateMessage.vue";
 import Register from "./components/Register.vue";
+import Login from "./components/Login.vue";
 
 loadFonts();
 
@@ -20,6 +21,7 @@ const routes = [
   { path: "/NewMessage", component: CreateMessage },
   { path: "/Message/:id", component: Message },
   { path: "/Register", component: Register },
+  { path: "/Login", component: Login },
 ];
 
 const router = createRouter({

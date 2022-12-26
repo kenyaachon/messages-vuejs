@@ -47,9 +47,30 @@ app.post("/register", (req, res) => {
   users.push(registerData);
   console.log("users", users);
   console.log(registerData);
+
   // res.json(registerData.id);
 
   let token = jwt.sign(registerData.id, privateKey);
+  res.json(token);
+});
+
+app.post("/login", (req, res) => {
+  // login a user
+  let loginData = req.body;
+
+  const user = users.filter((user) => user.userName === loginData.userName)[0];
+
+  console.log("users", users);
+  console.log("user", user);
+
+  if (user === undefined) {
+    return res.status(401).send({ message: "name or password is invalid" });
+  }
+  if (user.password != loginData.password) {
+    return res.status(401).send({ message: "name or password is invalid" });
+  }
+
+  let token = jwt.sign(user.id, privateKey);
   res.json(token);
 });
 app.listen(port, () => console.log("app running"));

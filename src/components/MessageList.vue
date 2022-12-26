@@ -2,7 +2,6 @@
   <v-container>
     <v-card>
       <v-container>
-        <!-- <h4 class="text-h4">Messages</h4> -->
         <v-toolbar color="black">
           <v-toolbar-title>Messages</v-toolbar-title>
         </v-toolbar>

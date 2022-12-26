@@ -7,7 +7,7 @@
 
       <v-spacer />
       <v-btn class="pa-3 ma-2" flat v-if="!auth" to="/Register">Register</v-btn>
-      <v-btn class="pa-3 ma-2" flat v-if="!auth">Login</v-btn>
+      <v-btn class="pa-3 ma-2" flat v-if="!auth" to="/Login">Login</v-btn>
       <v-btn class="pa-3 ma-2" flat v-if="auth" @click="$store.commit('logout')"
         >Logout</v-btn
       >
@@ -44,6 +44,7 @@ export default defineComponent({
     },
     logout() {
       this.$store.dispatch("logout");
+      this.$router.push("/Login");
     },
   },
   computed: {

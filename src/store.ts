@@ -62,9 +62,17 @@ export const store = createStore<State>({
 
       localStorage.setItem("token", token);
       axios.defaults.headers.common["Authorization"] = token;
+      this.$router.push("/");
     },
-    async logout({ commit }) {
-      commit("logout");
+
+    async login({ commit }, userData) {
+      const token = (await axios.post("http://localhost:3000/login", userData))
+        .data;
+
+      commit("authentication", token);
+
+      localStorage.setItem("token", token);
+      axios.defaults.headers.common["Authorization"] = token;
     },
   },
 });
