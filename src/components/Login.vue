@@ -49,6 +49,7 @@ export default {
           userName: this.userName,
           password: this.password,
         });
+        this.$router.replace("/");
       } catch (error) {
         console.error(error);
       }

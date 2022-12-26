@@ -51,7 +51,8 @@ export default {
           userName: this.userName,
           password: this.password,
         });
-        this.$router.push("/");
+
+        this.$router.replace("/");
       } catch (error) {
         console.error(error);
       }

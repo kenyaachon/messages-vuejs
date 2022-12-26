@@ -44,7 +44,7 @@ export default defineComponent({
     },
     logout() {
       this.$store.dispatch("logout");
-      this.$router.push("/Login");
+      this.$router.replace("/Login");
     },
   },
   computed: {
